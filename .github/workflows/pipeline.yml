@@ -26,6 +26,15 @@ jobs:
       - name: Install dependencies
         run: pip install datasets huggingface_hub pandas
 
+      - name: Recreate project folder structure
+        run: |
+          mkdir -p tourism_project/data
+          mkdir -p tourism_project/model_building
+          mkdir -p tourism_project/deployment
+          cp data/tourism.csv tourism_project/data/
+          cp model_building/*.py tourism_project/model_building/
+          cp deployment/* tourism_project/deployment/
+
       - name: Run data registration
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
@@ -45,6 +54,15 @@ jobs:
 
       - name: Install dependencies
         run: pip install datasets huggingface_hub pandas scikit-learn
+
+      - name: Recreate project folder structure
+        run: |
+          mkdir -p tourism_project/data
+          mkdir -p tourism_project/model_building
+          mkdir -p tourism_project/deployment
+          cp data/tourism.csv tourism_project/data/
+          cp model_building/*.py tourism_project/model_building/
+          cp deployment/* tourism_project/deployment/
 
       - name: Run data preparation
         env:
@@ -71,6 +89,15 @@ jobs:
 
       - name: Wait for MLflow server
         run: sleep 5
+
+      - name: Recreate project folder structure
+        run: |
+          mkdir -p tourism_project/data
+          mkdir -p tourism_project/model_building
+          mkdir -p tourism_project/deployment
+          cp data/tourism.csv tourism_project/data/
+          cp model_building/*.py tourism_project/model_building/
+          cp deployment/* tourism_project/deployment/
 
       - name: Download prepared data from HF
         env:
@@ -108,6 +135,15 @@ jobs:
 
       - name: Install dependencies
         run: pip install huggingface_hub
+
+      - name: Recreate project folder structure
+        run: |
+          mkdir -p tourism_project/data
+          mkdir -p tourism_project/model_building
+          mkdir -p tourism_project/deployment
+          cp data/tourism.csv tourism_project/data/
+          cp model_building/*.py tourism_project/model_building/
+          cp deployment/* tourism_project/deployment/
 
       - name: Run deployment
         env:
