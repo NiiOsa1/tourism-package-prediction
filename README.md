@@ -6,20 +6,22 @@ GitHub Actions.
 
 ## Project Structure
 
+```
 .github/workflows/
-pipeline.yml # GitHub Actions CI/CD pipeline
+    pipeline.yml              # GitHub Actions CI/CD pipeline
 data/
-tourism.csv # Raw dataset
+    tourism.csv               # Raw dataset
 model_building/
-data_register.py # Push raw data to HF Datasets
-prep.py # Clean, split, push splits to HF
-train.py # Train XGBoost, log to MLflow, push model to HF
-host.py # Deploy Streamlit app to HF Spaces
+    data_register.py          # Push raw data to HF Datasets
+    prep.py                   # Clean, split, push splits to HF
+    train.py                  # Train XGBoost, log to MLflow, push model to HF
+    host.py                   # Deploy Streamlit app to HF Spaces
 deployment/
-Dockerfile # Docker container configuration
-app.py # Streamlit prediction app
-requirements.txt # App dependencies
+    Dockerfile                # Docker container configuration
+    app.py                    # Streamlit prediction app
+    requirements.txt          # App dependencies
 README.md
+```
 
 ## Pipeline
 
